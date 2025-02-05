@@ -1,0 +1,41 @@
++---------------------------+
+|      Docker Client        |  
+|    (CLI & Remote API)     |
++---------------------------+
+|    Docker Host/Server     |  
+|      (Docker Daemon)      |
++---------------------------+
+|    Containers & Images    |
++---------------------------+
+          |
+          V
++---------------------------+
+|      Docker Registry      |
+|  (Docker Hub & Private)   |
++---------------------------+
+
+Docker Client (CLI & Remote API)
+
+This is what you, as a user, interact with.
+You use commands (like docker run, docker build) in the terminal or through a graphical interface to manage Docker.
+It sends your commands to the Docker Server.
+
+
+Docker Host/Server (Docker Daemon)
+
+This is the engine that runs Docker.
+It listens to commands from the client and performs actions like creating, running, and managing containers.
+It’s like the brain that controls everything.
+
+Containers & Images
+
+Images are like blueprints (pre-packaged applications with everything they need to run).
+Containers are running instances of these images.
+The server uses images to create containers where your applications run.
+
+Docker Registry (Docker Hub & Private Registry)
+
+A storage place for Docker images.
+Public registries (like Docker Hub) have thousands of ready-to-use images.
+Private registries store images securely for personal or enterprise use.
+The Docker Server pulls images from here when needed.
