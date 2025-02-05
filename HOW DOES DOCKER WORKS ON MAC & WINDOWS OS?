@@ -1,0 +1,12 @@
+When you install Docker on a Linux OS, you receive the complete Docker Engine on your Linux host. 
+However, if you opt for Docker Desktop for Mac or Windows, only the Docker client is installed on your macOS or Windows host.
+
+Behind the scenes, a lightweight virtual machine is configured with Linux, and the Docker server component is installed within that virtual machine.
+
+As a user, your experience will be very similar to using Docker on a Linux machine, with minimal noticeable differences. 
+However, when you utilize the Docker CLI to execute commands, you are actually interacting with a Docker server running on a separate machine, which in this case is the Linux-based virtual machine.
+
+To confirm this configuration, you can start Docker and execute the docker version command. 
+You will observe that the Docker client is running on the darwin/amd64 architecture (on macOS) or windows/amd64 (on Windows), 
+while the Docker server is operating on the linux/amd64 architecture.
+
