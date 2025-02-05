@@ -1,0 +1,15 @@
+Containers are based on the concept of operating system (OS) virtualization, where multiple containers can run on the same physical or virtual machine, sharing the same OS kernel. 
+This differs from traditional virtualization, where each virtual machine (VM) runs a separate OS instance.
+
+In containerization, Linux features such as namespaces and cgroups play a crucial role in providing isolation and resource management. Here's a brief explanation of these concepts:
+
+NAMESPACES
+Linux namespaces allow for the creation of isolated environments within the operating system. 
+Each container has its own set of namespaces, including process, network, mount, IPC (interprocess communication), and user namespaces. 
+These namespaces ensure that processes within a container are only aware of and can interact with resources within their specific namespace, providing a level of isolation.
+
+CONTROL GROUPS
+cgroups provide resource management and allocation capabilities for containers.
+They allow administrators to control and limit the resources (such as CPU, memory, disk I/O, and network bandwidth) that containers can consume. 
+By using cgroups, container runtimes can enforce resource restrictions and prevent one container from monopolizing system resources, ensuring fair allocation among containers.
+
