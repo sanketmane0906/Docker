@@ -1,0 +1,56 @@
+There are 3 ways to generate docker image of our existed microservice :-
+
+1) using Dockerfile:-
+
+	The Dockerfile is the most common way to create a Docker image by defining instructions for building the container.
+
+		Steps:
+			i) Create a Dockerfile in your project directory.
+			ii) Define the base image and necessary instructions.
+			ii) Build the image using the docker build command.
+
+         	Pro's :
+
+			* Highly customizable.
+			* Efficient layer caching.
+			* Industry standard.
+
+
+
+2) Using docker commit (From a Running Container) :-
+
+         You can create a Docker image from an existing running container by using docker commit.
+
+      		Steps:
+			i) Start a base container.
+			ii) Install necessary dependencies manually.
+			iii) Commit the container as a new image.
+
+		Pro's :
+
+			* Fast for quick modifications.
+			* No need to write a Dockerfile.
+
+		Con's :
+
+			* Not reproducible (hard to track changes).
+			* No layer caching (less efficient).
+
+
+
+
+3. Using docker save and docker load (Prebuilt Image Tar Files) :-
+
+ 	  If you already have a prebuilt image, you can generate and distribute it using docker save and docker load.
+
+
+
+		Pro's :
+
+			* Useful for offline distribution.
+			* Works well for exporting/importing images.
+
+  		Con's :
+
+			* Doesn't support modifications (must be prebuilt).
+			* Not ideal for development workflows.
