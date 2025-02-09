@@ -1,0 +1,46 @@
+Docker commands :-
+
+1) docker version :-
+
+               THis command gives you information of docker version present in your system.
+
+2) docker images :-
+
+             If you run this command on the docker command line input (CLI). It will give you list of all images present in docker engine.
+
+3) docker ps :-
+
+           If you run this command then it will give you list of all running images of docker.
+
+4) docker ps -a:-
+
+           This command give list of all stopped images in the docker.
+
+5) docker build . -t sanketmane0906/accounts:s1 :-
+           
+          (Here sanketmane0906 is a username of docker engine)
+          docker build . → This tells Docker to build an image using the Dockerfile located in the current directory (.).
+          t sanketmane0906/accounts:s1 → The -t flag assigns a tag (sanketmane0906/accounts:s1) to the newly built image.
+                       sanketmane0906/accounts → This is the name of the image.
+                       s1 → This is the tag for the image (often used for versioning, e.g., s1 could mean "Stage 1" or "Snapshot 1").
+
+6) docker run -p 8080:8080 sanketmane0906/accounts:s1 :-
+
+             docker run → Starts a new container from a specified Docker image.
+            -p 8080:8080 → Maps port 8080 of the container to port 8080 on the host machine.
+            The format is host_port:container_port.
+            This means that if your application inside the container runs on port 8080, you can access it from localhost:8080 on your machine.
+            sanketmane0906/accounts:s1 → This is the name of the Docker image that you want to run (previously built using docker build).
+
+            This command is telling docker engine to run the  "accounts:s1" this images in docker engine.
+            When you run this command that images all log while running that image will be shown on cli.
+
+7) docker run -d -p 8080:8080 sanketmane0906/accounts:s1 :-
+
+            But when you want to run image in detached mode then use this command.
+            Here you can run multiple simualtaneously images.
+
+
+
+
+
