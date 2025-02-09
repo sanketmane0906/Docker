@@ -10,11 +10,11 @@ Docker commands :-
 
 3) docker ps :-
 
-           If you run this command then it will give you list of all running images of docker.
+           If you run this command then it will give you list of all running containers of docker.
 
 4) docker ps -a:-
 
-           This command give list of all stopped images in the docker.
+           This command give list of all stopped containers in the docker.
 
 5) docker build . -t sanketmane0906/accounts:s1 :-
            
