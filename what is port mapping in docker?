@@ -1,0 +1,10 @@
+What is port mapping in docker?
+
+        by default containers are connected to the isolated network with the docker host If you want to access that container you have to do port mapping explicitly
+
+        syntax of docker run command :-
+
+                   docker run -p <host_port>:<container_port> <image_name>
+
+                          host_port → The port on your local machine (host) where you want to access the container.
+                          container_port → The port inside the container that the application is listening on
