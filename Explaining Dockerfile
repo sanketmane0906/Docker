@@ -1,0 +1,52 @@
+What is Dockerfile ?
+
+     A Dockerfile is a text file that contains a set of instructions for building a Docker image. 
+     It automates the process of creating containerized applications by specifying everything required, 
+     such as the base image, dependencies, configurations, and commands to run.
+
+Explaining we used Dockerfile :-
+
+    # 1. Use an official base image with Java 17
+    FROM openjdk:17-jdk-slim
+    
+    #information about who maintains image
+    MAINTAINER swedishbank.com
+
+    #there is jar inside target/in.Accounts-0.0.1-SNAPSHOT.jar open that jar and copy it in docker image
+    COPY target/in.Accounts-0.0.1-SNAPSHOT.jar in.Accounts-0.0.1-SNAPSHOT.jar
+  
+    #it is like the command using which we statting the accounts service using commandline
+    ENTRYPOINT [ "java", "-jar", "in.Accounts-0.0.1-SNAPSHOT.jar" ]
+
+    explanation :-
+
+     1). Use an official base image with Java 17
+         FROM openjdk:17-jdk-slim
+
+        The FROM instruction specifies the base image.
+        openjdk:17-jdk-slim is a lightweight version of OpenJDK 17, reducing the image size while keeping Java functionalities.
+
+
+     2). Information about who maintains the image
+         MAINTAINER swedishbank.com
+
+         This MAINTAINER instruction specifies the creator or maintainer of the image.
+
+     3). Copy the JAR file from the host machine into the Docker image
+         COPY target/in.Accounts-0.0.1-SNAPSHOT.jar in.Accounts-0.0.1-SNAPSHOT.jar
+
+         COPY copies files from the host machine (the system where Docker is running) to the Docker image.
+         target/in.Accounts-0.0.1-SNAPSHOT.jar is the compiled Spring Boot application JAR file generated from the target/ folder.
+         The copied JAR file is placed inside the Docker image with the same name.
+
+     4). Define the command to start the Spring Boot application
+         ENTRYPOINT [ "java", "-jar", "in.Accounts-0.0.1-SNAPSHOT.jar" ]
+
+         The ENTRYPOINT instruction specifies the command that runs when the container starts.
+         
+         java -jar in.Accounts-0.0.1-SNAPSHOT.jar
+         This command starts the Spring Boot application inside the container.
+
+
+
+
