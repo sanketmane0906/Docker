@@ -1,0 +1,85 @@
+Docker Compose is used to define and manage multi-container Docker applications. 
+Since you're working with Spring Boot, you likely need a docker-compose.yml file that sets up your application along with a database like MySQL or PostgreSQL.
+
+Docker applications using a simple YAML configuration file (docker-compose.yml). 
+Instead of running multiple docker run commands manually, Docker Compose lets you start and manage multiple services with a single command.
+
+Why Use Docker Compose?
+
+✅ Simplifies Multi-Container Applications
+            Instead of running separate docker run commands for each container, you define everything in docker-compose.yml.
+
+✅ Manages Dependencies
+            Ensures that services (e.g., Spring Boot + MySQL) start in the correct order.
+
+✅ Easy Scaling
+            Allows scaling services up/down (e.g., multiple instances of an app) with docker-compose up --scale app=3.
+
+✅ Consistent Environment
+            Ensures the same configuration runs on any machine with Docker.
+
+✅ Networking Support
+            Automatically creates a network between containers so they can communicate without exposing ports.
+
+Docker Compose File Structure :-
+        A docker-compose.yml file typically consists of services (containers), networks, and volumes.
+
+version: "3.8"  # Docker Compose version
+
+services:
+  app:  # Define Spring Boot application
+    build: .  # Build from Dockerfile in the same directory
+    container_name: spring-boot-app
+    ports:
+      - "8080:8080"  # Map container port to host
+    depends_on:
+      - db  # Ensure database starts before app
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/medicine_db
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: rootpassword
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    networks:
+      - spring-network
+
+  db:  # Define MySQL database service
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: medicine_db
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "3306:3306"
+    networks:
+      - spring-network
+
+networks:
+  spring-network:  # Create a shared network for communication
+
+
+* How to Use Docker Compose :-
+
+1️⃣ Build and Start Services
+
+         docker-compose up --build
+         Builds images (if needed) and starts all services.
+
+2️⃣ Run Services in Detached Mode (-d)
+
+          docker-compose up -d
+          Runs services in the background.
+
+3️⃣ View Running Services
+
+          docker-compose ps
+
+4️⃣ Stop Services
+
+          docker-compose down
+
+5️⃣ Remove Stopped Containers & Networks
+
+          docker-compose down -v
+
+
